@@ -21,7 +21,7 @@
 						<ul>
 							<li><a href="#intro">About me</a></li>
 							<li><a href="#one">Portfolio</a></li>
-							<li><a href="#two">What I can do for y'all!</a></li>
+							<li><a href="#two">What I do</a></li>
 							<li><a href="#three">Get in touch</a></li>
 						</ul>
 					</nav>
@@ -53,11 +53,11 @@
 									<p>
 										Dividewise is my clone of the bill-splitting website Splitwise.
 										On the backend, I wrote it with Ruby on Rails as the MVC and PostgreSQL as the database. The frontend was a work of React, Redux, Styled Components, CSS and HTML.
-										More recently, I've stuck in a google authentication inside the Rails controller and google login page in React. 
-										I especially enjoyed adding tons of authorizing logic to make sure only people with the proper access could see and change bills because I believe that is important when it comes to pecuniary concerns.
+										More recently, I've stuck in a google authentication inside the Rails controller with a google login page for ease of adoption!
+										I especially enjoyed adding tons of authenticating logic to make sure only people with the proper access could see and change bills because I believe that is important when it comes to pecuniary concerns.
 									</p>
 									<ul class="actions">
-										<li><a href="generic.html" class="button">Learn more</a></li>
+										<li><a href="https://dividewise.herokuapp.com/" class="button">Learn more</a></li>
 									</ul>
 								</div>
 							</div>
@@ -67,10 +67,12 @@
 							<div class="content">
 								<div class="inner">
 									<h2>Typing Fantasy</h2>
-									<p>Typing Fantasy uses Javascript, Canvas, CSS and the principles of OOP. I used a combination of fetching google translation APIs to voice the words that appear
-										above enemies and tr. Be sure to try it out!
+									<p>Typing Fantasy is a typing game that uses Javascript, Canvas, CSS and the principles of OOP. I fetched google translation APIs to voice the words that appear
+										above enemies which you can type to attack. Words per minute is tracked as well as a player's health. Additionally the game logic was bifurcated into a Chinese and English version and there is logic to load only the dictionary needed (to save a player's bandwidth!). High scores are tracked in a
+										in a json file to fit the interchange use-case. Keeping track of rendered frames and "layers" of what was on top of what was a real joy for me in this project.
+										Be sure to try it out!
 									<ul class="actions">
-										<li><a href="http://cryptic-escarpment-31838.herokuapp.com/" class="button">Learn more</a></li>
+										<li><a href="https://cryptic-escarpment-31838.herokuapp.com/" class="button">Learn more</a></li>
 									</ul> 
 								</div>
 							</div>
@@ -80,9 +82,12 @@
 							<div class="content">
 								<div class="inner">
 									<h2>Bone Throw</h2>
-									<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
+									<p>Bone Throw is a showcase of in-browser functionality like Local Storage to keep track of sensitive info like a dog's weight on users' browsers rather than in a traditional database.
+									Furthermore I made a Python Django API that fetched from a Yahoo stocks API and transformed that stock data into a continuous wave with another physics API before then sending it off to Bone Throw for the user to see as a beautifully rendered Charts.js data chart!
+									Data 'streams' like that of a user-input walk duration were leveraged by the MongoDB database and shown off to the world to keep users engaged and informed of a walk-duration recommendation.
+									</p>
 									<ul class="actions">
-										<li><a href="generic.html" class="button">Learn more</a></li>
+										<li><a href="https://pure-eyrie-29492.herokuapp.com/" class="button">Learn more</a></li>
 									</ul>
 								</div>
 							</div>
@@ -101,7 +106,7 @@
 									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
 								</section>
 								<section> 
-									<span class="icon solid major fa-lock"></span>
+									<span class="icon solid major fa-js-square"></span>
 									<h3>Aliquam sed nullam</h3>
 									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
 								</section>w
