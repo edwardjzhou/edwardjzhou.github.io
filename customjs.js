@@ -2,7 +2,7 @@ var particleAlphabet = {
 	Particle: function(x, y) {
 		this.x = x;
 		this.y = y;
-		this.radius = 2;
+		this.radius = 3; // size of dot
 		this.draw = function(ctx) {
 			ctx.save();
 			ctx.translate(this.x, this.y);
@@ -12,14 +12,16 @@ var particleAlphabet = {
 		};
 	},
 	init: function() {
+		document.querySelector('canvas').style.transform="rotate(-0deg)"
+		document.querySelector('canvas').style.borderRadius="20px"
 		particleAlphabet.canvas = document.querySelector('#canvas1');
 		particleAlphabet.ctx = particleAlphabet.canvas.getContext('2d');
-		particleAlphabet.W = window.innerWidth;
-		particleAlphabet.H = window.innerHeight;
+		particleAlphabet.W = window.innerWidth - 18*parseFloat(getComputedStyle(document.querySelector('.inner')).fontSize) - 
+		3*parseFloat( getComputedStyle(document.querySelector('.inner').parentElement).paddingLeft)
+		particleAlphabet.H = 1.5 * particleAlphabet.W/6 
 		particleAlphabet.particlePositions = [];
 		particleAlphabet.particles = [];
 		particleAlphabet.tmpCanvas = document.createElement('canvas');
-		// particleAlphabet.tmpCanvas.id = 'canvas1'
 		particleAlphabet.tmpCtx = particleAlphabet.tmpCanvas.getContext('2d');
 		particleAlphabet.canvas.width = particleAlphabet.W;
 		particleAlphabet.canvas.height = particleAlphabet.H;
@@ -27,9 +29,9 @@ var particleAlphabet = {
 		setInterval(function(){
 			particleAlphabet.changeLetter();
 			particleAlphabet.getPixels(particleAlphabet.tmpCanvas, particleAlphabet.tmpCtx);
-		}, 1200);
+		}, 2400);
 
-		particleAlphabet.makeParticles(2000);
+		particleAlphabet.makeParticles(4000);
 		particleAlphabet.animate();
 	}, 
 	currentPos: 0,
@@ -38,7 +40,7 @@ var particleAlphabet = {
 			letters = letters.split('');
 
 		// my edit
-		letters = ["/dev/web","ed/ward/"]
+		letters = ["/web/dev","edw/ard/"]
 
 		particleAlphabet.time = letters[particleAlphabet.currentPos];
 		particleAlphabet.currentPos++;
@@ -48,17 +50,20 @@ var particleAlphabet = {
 	},
 	makeParticles: function(num) {
 		for (var i = 0; i <= num; i++) {
+			// particleAlphabet.particles.push(new particleAlphabet.Particle(particleAlphabet.W / 2 + Math.random() * 400 - 200, particleAlphabet.H / 2 + Math.random() * 400 -200));
 			particleAlphabet.particles.push(new particleAlphabet.Particle(particleAlphabet.W / 2 + Math.random() * 400 - 200, particleAlphabet.H / 2 + Math.random() * 400 -200));
+
 		}
 	},
 	getPixels: function(canvas, ctx) {
 		var keyword = particleAlphabet.time,
-			gridX = 6,
+			gridX = 6, // spacing between dots on x axis
 			gridY = 6;
-		canvas.width = window.innerWidth;
-		canvas.height = window.innerHeight;
+		canvas.width = window.innerWidth - 18*parseFloat(getComputedStyle(document.querySelector('.inner')).fontSize) - 
+		3*parseFloat( getComputedStyle(document.querySelector('.inner').parentElement).paddingLeft)
+		canvas.height = 1.5 * canvas.width/6  // 240//window.innerHeight;
 		ctx.fillStyle = 'red';
-		ctx.font = 'italic bold 330px Noto Serif';
+		ctx.font = `italic bold ${canvas.width/6}px Noto Serif`;
 		ctx.fillText(keyword, canvas.width / 2 - ctx.measureText(keyword).width / 2, canvas.height / 2 + 100);
 		var idata = ctx.getImageData(0, 0, canvas.width, canvas.height);
 		var buffer32 = new Uint32Array(idata.data.buffer);
@@ -88,7 +93,7 @@ var particleAlphabet = {
 	},
 	animate: function() {
 		requestAnimationFrame(particleAlphabet.animate);
-		particleAlphabet.ctx.fillStyle = 'rgba(23, 41, 58, .8)';
+		particleAlphabet.ctx.fillStyle = 'rgba(23, 41, 58, .8)'; // bgcolor
 		particleAlphabet.ctx.fillRect(0, 0, particleAlphabet.W, particleAlphabet.H);
 		particleAlphabet.animateParticles();
 	}
