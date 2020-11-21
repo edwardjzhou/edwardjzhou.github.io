@@ -63,7 +63,7 @@ var particleAlphabet = {
 		3*parseFloat( getComputedStyle(document.querySelector('.inner').parentElement).paddingLeft)
 		canvas.height = 1.5 * canvas.width/6  // 240//window.innerHeight;
 		ctx.fillStyle = 'red';
-		ctx.font = `italic bold ${canvas.width/6}px Noto Serif`;
+		ctx.font = `bold ${canvas.width/6}px Arial`;
 		ctx.fillText(keyword, canvas.width / 2 - ctx.measureText(keyword).width / 2, canvas.height / 2 + 100);
 		var idata = ctx.getImageData(0, 0, canvas.width, canvas.height);
 		var buffer32 = new Uint32Array(idata.data.buffer);
@@ -93,7 +93,7 @@ var particleAlphabet = {
 	},
 	animate: function() {
 		requestAnimationFrame(particleAlphabet.animate);
-		particleAlphabet.ctx.fillStyle = 'rgba(23, 41, 58, .8)'; // bgcolor
+		particleAlphabet.ctx.fillStyle = '#312450' //'rgba(23, 41, 58, .8)'; // bgcolor
 		particleAlphabet.ctx.fillRect(0, 0, particleAlphabet.W, particleAlphabet.H);
 		particleAlphabet.animateParticles();
 	}
