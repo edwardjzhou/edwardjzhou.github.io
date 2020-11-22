@@ -1994,19 +1994,36 @@ input, select, textarea {
 	}
 
 		.features section {
-			padding: 3.5em 3em 1em 7em ;
-			width: 50%;
+			padding: 3.5em 3em 1em 3.5em ;
+			width: 33%;
 			border-top: solid 1px rgba(255, 255, 255, 0.15);
 			position: relative;
+			text-align: center;
 		}
 
 			.features section:nth-child(-n + 2) {
 				border-top-width: 0;
 			}
+			/* need 2,3,5,6 */
+			/* .features section:nth-child(2n) {
+				border-left: solid 1px rgba(255, 255, 255, 0.15);
+			} */
+			.features section h3 {
 
-			.features section:nth-child(2n) {
+			}
+			.features section:nth-child(2) {
 				border-left: solid 1px rgba(255, 255, 255, 0.15);
 			}
+			.features section:nth-child(3) {
+				border-left: solid 1px rgba(255, 255, 255, 0.15);
+			}
+			.features section:nth-child(5) {
+				border-left: solid 1px rgba(255, 255, 255, 0.15);
+			}
+			.features section:nth-child(6) {
+				border-left: solid 1px rgba(255, 255, 255, 0.15);
+			}
+
 
 			.features section .icon {
 				-moz-transition: opacity 0.5s ease, -moz-transform 0.5s ease;

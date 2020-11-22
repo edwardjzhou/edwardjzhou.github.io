@@ -31,7 +31,12 @@ var particleAlphabet = {
 			particleAlphabet.getPixels(particleAlphabet.tmpCanvas, particleAlphabet.tmpCtx);
 		}, 2400);
 
-		particleAlphabet.makeParticles(4000);
+		if (particleAlphabet.canvas.width > 2000) {
+			particleAlphabet.makeParticles(5000)
+		}
+		else {
+			particleAlphabet.makeParticles(4000);
+		}
 		particleAlphabet.animate();
 	}, 
 	currentPos: 0,
@@ -64,7 +69,7 @@ var particleAlphabet = {
 		canvas.height = 1.5 * canvas.width/6  // 240//window.innerHeight;
 		ctx.fillStyle = 'red';
 		ctx.font = `bold ${canvas.width/6}px Arial`;
-		ctx.fillText(keyword, canvas.width / 2 - ctx.measureText(keyword).width / 2, canvas.height / 2 + 100);
+		ctx.fillText(keyword, canvas.width / 2 - ctx.measureText(keyword).width / 2, canvas.height / 2 + canvas.height/4); // bigger # at end  the lower the text
 		var idata = ctx.getImageData(0, 0, canvas.width, canvas.height);
 		var buffer32 = new Uint32Array(idata.data.buffer);
 		if (particleAlphabet.particlePositions.length > 0) particleAlphabet.particlePositions = [];
