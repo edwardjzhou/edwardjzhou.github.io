@@ -131,7 +131,7 @@ var particleAlphabet = {
 
 window.onload = particleAlphabet.init;
 window.onresize = function(){
-	
+	return;
 	clearInterval(window.DELETEME)
 	delete particleAlphabet
 	particleAlphabet = {}
